@@ -5,6 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { LoaderService } from 'src/app/services/loader.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/shared/models/product.model';
 
@@ -17,7 +18,7 @@ export class ProductsListComponent implements OnInit, OnChanges {
   allProducts: Product[] = [];
   products: Product[] = [];
   @Input() categoryType: string = '';
-  constructor(private productService: ProductsService) {}
+  constructor(private productService: ProductsService,private loaderService: LoaderService) {}
 
   page = 0;
   size = 8;

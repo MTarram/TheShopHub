@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, HostListener, Inject, OnDestroy } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -11,11 +11,15 @@ import { LoaderService } from './services/loader.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'The Shop Hub';
   lang:string='';
   constructor(public loaderService: LoaderService, public auth: AuthService, private translateService: TranslateService, @Inject(DOCUMENT) private document: Document) { }
-
+  @HostListener('window:beforeunload')
+  async ngOnDestroy()
+  {
+    await localStorage.clear();
+  }
   changeLangage(lang: string) {
     this.lang=lang
     let htmlTag = this.document.getElementsByTagName("html")[0] as HTMLHtmlElement;
