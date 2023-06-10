@@ -1,0 +1,23 @@
+<div class="productCard h-100">
+    <div class="productImage mb-3 h-100">
+        <img class="w-100 h-100" [src]="product.image" alt="Image">
+    </div>
+    <div class="productBody mt-3">
+        <div class="row mb-2">
+            <div class="col-9 fw-bold">{{product.title | slice: 0:25}}..</div>
+            <div class="col-3 d-flex justify-content-end fw-bold">{{product.price | currency:'USD'}}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 mb-2">{{product.description | slice: 0:100}}..</div>
+            <div class="col-12 mb-2 starsContainer">
+                <p-rating [(ngModel)]="product.rating.rate" [readonly]="true" [cancel]="false"></p-rating>
+                <span style="padding-left: 5px;">({{product.rating.count}})</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn customBtn w-100" routerLink="/shop/details/{{product.id}}">{{'More Details'|translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

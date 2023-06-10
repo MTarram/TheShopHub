@@ -1,0 +1,44 @@
+<div class="container-fluid py-3">
+    <div class="row pt-5 pb-3">
+        <div class="col text-center">
+            <a class="navbar-brand" routerLink="/home">THE SHOP HUB</a>
+        </div>
+        <br>
+    </div>
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light pt-0 pb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" routerLink="dashboard"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-5">
+                            <a class="nav-link" routerLink="/home" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">{{'Home'|translate}}</a>
+                        </li>
+                        <li class="nav-item px-5">
+                            <a class="nav-link" routerLink="/shop" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">{{'Shop'|translate}}</a>
+                        </li>
+                        <li class="nav-item dropdown px-5">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                {{'Language'|translate}}
+                            </a>
+                            <ul class="dropdown-menu mx-5">
+                                <li (click)="changeLanguage('en')"><a class="dropdown-item">{{'English'|translate}}</a></li>
+                                <li (click)="changeLanguage('ar')"><a class="dropdown-item">{{'Arabic'|translate}}</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item px-5">
+                            <a class="nav-link" style="cursor: pointer;" (click)="onLogout()">{{'Logout'|translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row mainRow">
+        <div class="col-12 col-xl-6 d-none d-xl-block bg"></div>
+        <div class="col-12 col-xl-6 textSection">
+            <img src="../../../assets/shopping-bag.png" alt="present" width="80" height="80">
+            <h1 class="mt-4">{{'Shopping And Department Store.'|translate}}</h1>
+            <p>{{'Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank balance.'|translate}}</p>
+            <button class="btn customBtn" routerLink="/shop">{{'Shop Now!'|translate}}</button>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row mb-5">
+        <div class="col">
+            <h1 style="font-weight: 700; font-size: 2rem; font-family: 'Poppins', sans-serif">{{"Today's best deals for you!"|translate}}</h1>
+            <small>{{'Check out our current list of the available deals.'|translate}}</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xxl-4 col-md-6 mb-5" *ngFor="let product of allProducts">
+            <app-product [product]="product"></app-product>
+        </div>
+    </div>
+</div>

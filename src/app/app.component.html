@@ -1,0 +1,9 @@
+<app-header *ngIf="auth.isAuthenticated()" (lang)="changeLangage($event)"></app-header>
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner style="top: 50%; left: 47%;"></mat-spinner>
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="auth.isAuthenticated()" class="container mt-4">
+    <hr>
+    <app-footer></app-footer>
+</div>
